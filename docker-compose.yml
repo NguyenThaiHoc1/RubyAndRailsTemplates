@@ -1,0 +1,18 @@
+version: '3'
+services:
+  webapp:
+    build: .
+    volumes:
+      - .:/thaihocapp
+    ports:
+      - 80:3000
+    entrypoint: sh /thaihocapp/startup.sh
+    links:
+      - db
+  db:
+    image: postgres
+    ports:
+      - 7000:5432
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_USER=web
