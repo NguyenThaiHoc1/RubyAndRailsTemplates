@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Article.delete_all
+
+(1..3).each do |number|
+  Article.create!(title: "title-#{number}", body: "body-#{number}", user_id: "#{number}");
+end
